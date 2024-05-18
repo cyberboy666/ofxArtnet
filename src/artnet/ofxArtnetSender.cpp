@@ -57,7 +57,7 @@ void ofxArtnetSender::sendArtnet(const ofxArtnetMessage& message)
 	}
 	else
 	{
-		//_data‚ğì¬‚µ‚Äsend
+		//_dataï¿½ï¿½ï¿½ì¬ï¿½ï¿½ï¿½ï¿½send
 		sendData(message);
 	}
 }
@@ -86,4 +86,13 @@ void ofxArtnetSender::sendData(const ofxArtnetMessage& message)
 		createBuffer(message, artnetBuff);
 		udp.Send((const char *)artnetBuff.data(), artnetBuff.size());
 	}
+}
+
+void ofxArtnetSender::sendArtSync()
+{
+    std::vector<unsigned char> artSyncPacket;
+	allocateArtnetBuffer(artSyncPacket, 0);
+    createArtSyncPacket(artSyncPacket);
+
+    udp.Send((const char *)artSyncPacket.data(), artSyncPacket.size());
 }

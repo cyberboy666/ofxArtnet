@@ -32,6 +32,8 @@ public:
 	}
 
 	void sendArtnet(const ofxArtnetMessage& message);
+
+	void sendArtSync();
 	
 protected:
 	bool bThreadEnabled = false;
