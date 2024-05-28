@@ -24,12 +24,12 @@ ofxArtnetSender::~ofxArtnetSender()
 
 }
 
-void ofxArtnetSender::setup(const std::string& ipAddress, const uint16_t port)
+bool ofxArtnetSender::setup(const std::string& ipAddress, const uint16_t port)
 {
 	this->targetIp = ipAddress;
 	this->targetPort = port;
 	udp.Create();
-	udp.Connect(ipAddress.c_str(), port);
+	return udp.Connect(ipAddress.c_str(), port);
 }
 
 

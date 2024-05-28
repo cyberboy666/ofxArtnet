@@ -9,7 +9,7 @@ public:
 	ofxArtnetSender(const ofxArtnetSender& origin);
 
 	~ofxArtnetSender();
-    void setup(const std::string& ipAdress, const std::uint16_t port = 6454);
+    bool setup(const std::string& ipAdress, const std::uint16_t port = 6454);
 
 	inline void enableThread(const float fps)
 	{
